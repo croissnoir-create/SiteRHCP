@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+  <meta charset="UTF-8">
+  <title>Главная — Red Hot Chili Peppers</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+	  body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #121212; /* Темно-серый фон */
+      color: #F5F5F5; /* Белый цвет для текста */
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      line-height: 1.8;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      
+      /* Устанавливаем фон с картинкой fonfon44.jpg */
+      background-image: url('fonfon44.jpg');
+      background-position: center center; /* Центрируем изображение */
+      background-size: cover; /* Растягиваем изображение, чтобы оно покрывало весь экран */
+      background-repeat: no-repeat; /* Убираем повторение */
+      background-attachment: fixed; /* Фиксируем фон, чтобы он не двигался при прокрутке */
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #B22222; /* Красный фон */
+      color: #FFFFFF; /* Белый цвет для текста */
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      line-height: 1.8;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фильтр */
+      z-index: -1;
+    }
+
+    .menu {
+      text-align: center;
+      margin: 40px 0;
+      font-weight: bold;
+    }
+
+    .menu a {
+      display: inline-block;
+      background-color: rgba(255, 69, 0, 0.5); /* Красный для ссылок */
+      color: #FF0000; /* Оранжево-красный */
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 2px solid #FF4500;
+      border-radius: 30px;
+      margin: 6px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .menu a:hover {
+      background-color: #FF0000;
+      color: #FFF;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+
+    .menu a.active {
+      background-color: #FF0000;
+      color: #FFF;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FF0000;
+      text-shadow: 0 0 15px #FF0000, 0 0 30px #FF0000;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000; }
+      to { text-shadow: 0 0 20px #FF6347, 0 0 30px #FF6347; }
+    }
+
+    .content {
+      flex: 1;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 69, 0, 0.5);
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .quote {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #FF0000;
+      padding: 15px 20px;
+      font-style: italic;
+      margin: 30px 0;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .image-block {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .image-block img {
+      width: 80%;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
+      transition: transform 0.4s ease;
+    }
+
+    .image-block img:hover {
+      transform: scale(1.05);
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #FF0000;
+      width: 60%;
+      margin: 30px auto;
+    }
+
+    .facts {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    .facts ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .facts li {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .social-links {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 10px;
+      color: #FF0000;
+      font-size: 24px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <a href="indexst.html" class="active">Главная</a>
+    <a href="Infost.html">Общая информация</a>
+    <a href="Historyst.html">История</a>
+    <a href="Filmst.html">Фильмография</a>
+    <a href="Discst.html">Дискография</a>
+    <a href="Linkst.html">Источники</a>
+    <a href="Shopst.html">Заказать</a>
+    <a href="Contactst.html">Контакты</a>
+  </div>
+
+  <div class="content">
+    <h1>Red Hot Chili Peppers</h1>
+    <p><strong>Red Hot Chili Peppers</strong> — американская рок-группа, образованная в Лос-Анджелесе в 1983 году. Группа является одним из самых успешных и известных коллективов на планете, с музыкой, которая сочетает в себе элементы панка, фанка, рока и психоделии. Их альбомы и хиты стали настоящими культовыми произведениями, оказавшими огромное влияние на музыку и культуру 90-х и 2000-х годов.</p>
+
+    <p>Каждое выступление RHCP — это взрыв эмоций и драйва. Они продолжают вдохновлять новые поколения музыкантов и поклонников по всему миру.</p>
+
+    <div class="quote">"Give it away, give it away, give it away now!"</div>
+
+    <div class="image-block">
+      <img src="fl66.webp" alt="Red Hot Chili Peppers">
+    </div>
+
+    <h2>Группа сегодня</h2>
+    <p>После более чем 30 лет на сцене, Red Hot Chili Peppers продолжают радовать поклонников новыми альбомами и мировыми турами. Их музыка продолжает эволюционировать, сохраняя верность своему уникальному стилю, а группа продолжает оставаться значимой фигурой в музыкальной индустрии.</p>
+
+    <h3>Их достижения в цифрах:</h3>
+    <div class="facts">
+      <ul>
+        <li>Более 11 альбомов</li>
+        <li>Продано более 200 миллионов копий</li>
+        <li>7 премий Грэмми</li>
+        <li>Группа была введена в Зал Славы Рок-н-Ролла в 2012 году</li>
+        <li>Множество мировых туров и проданных концертов по всему миру</li>
+      </ul>
+    </div>
+
+    <p>RHCP остаются не только рок-легендой, но и культурным феноменом, продолжающим вдохновлять поколение за поколением.</p>
+
+   
+  </div>
+</body>
+</html>

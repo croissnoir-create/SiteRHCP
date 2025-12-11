@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head> 
+  <meta charset="UTF-8">
+  <title>Магазин — Red Hot Chili Peppers</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #121212; /* Темно-серый фон */
+      color: #F5F5F5; /* Белый цвет для текста */
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      line-height: 1.8;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      
+      /* Устанавливаем фон с картинкой fonfon44.jpg */
+      background-image: url('fonfon44.jpg');
+      background-position: center center; /* Центрируем изображение */
+      background-size: cover; /* Растягиваем изображение, чтобы оно покрывало весь экран */
+      background-repeat: no-repeat; /* Убираем повторение */
+      background-attachment: fixed; /* Фиксируем фон, чтобы он не двигался при прокрутке */
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.65); /* Полупрозрачный черный фильтр для фона */
+      z-index: -1;
+    }
+
+    body.light-theme {
+      background-color: #1c1c1c;
+      color: #D3D3D3; /* Легкий серый для светлой темы */
+      background-image: url("background-light_dark.jpg"); /* Фон для светлой темы */
+    }
+
+    body.light-theme::before {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* ======= МЕНЮ ======= */
+    .menu {
+      text-align: center;
+      margin: 40px 0 30px;
+      font-weight: bold;
+      animation: fadeIn 1s ease;
+    }
+
+    .menu a {
+      display: inline-block;
+      background-color: rgba(255, 0, 0, 0.25); /* Красный для ссылок */
+      color: #FF0000; /* Красный цвет */
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid #FF0000;
+      border-radius: 25px;
+      margin: 4px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    }
+
+    .menu a:hover {
+      background-color: #FF0000;
+      color: #FFF;
+      box-shadow: 0 0 15px #FF0000;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .menu a.active {
+      background-color: #FF0000;
+      color: #FFF;
+      box-shadow: 0 0 15px #FF0000;
+      cursor: default;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FF0000;
+      text-shadow: 0 0 10px #FF0000, 2px 2px 4px #000;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #FF0000, 2px 2px 4px #000; }
+      to { text-shadow: 0 0 20px #FF6347, 2px 2px 6px #000; }
+    }
+
+    .content {
+      flex: 1;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      background-color: rgba(0, 0, 0, 0.7); /* Прозрачный черный фон для контента */
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      animation: fadeInUp 1s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .quote {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #FF0000;
+      padding: 15px 20px;
+      font-style: italic;
+      margin: 30px 0;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .product-card {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      width: 250px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+
+    .product-card h3 {
+      color: #FF0000;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      color: #FFF;
+      font-size: 16px;
+    }
+
+    .product-card .price {
+      color: #FFD700;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .add-to-cart-btn {
+      background-color: #FF0000;
+      color: #FFF;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .add-to-cart-btn:hover {
+      background-color: #FF6347;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #FF0000;
+      width: 60%;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <a href="indexst.html">Главная</a>
+    <a href="Infost.html">Общая информация</a>
+    <a href="Historyst.html">История</a>
+    <a href="Filmst.html">Фильмография</a>
+    <a href="Discst.html">Дискография</a>
+    <a href="Linkst.html">Источники</a>
+    <a href="Shopst.html" class="active">Магазин</a>
+    <a href="Contactst.html">Контакты</a>
+  </div>
+
+  <div class="content">
+    <h1>Магазин "Red Hot Chili Peppers"</h1>
+    <p>Добро пожаловать в наш магазин! Здесь вы можете приобрести эксклюзивные товары с символикой группы "Red Hot Chili Peppers". В нашем ассортименте — футболки, постеры, виниловые пластинки и другие уникальные товары, которые порадуют настоящих поклонников группы.</p>
+
+    <div class="card-container">
+      <div class="product-card">
+        <img src="tb66.jpg" alt="Футболка Red Hot Chili Peppers">
+        <h3>Футболка "Red Hot Chili Peppers" чёрная</h3>
+        <p>Стильная футболка с логотипом группы, доступна в разных размерах.</p>
+        <div class="price">2 250 ₽</div>
+        <button class="add-to-cart-btn">Купить</button>
+      </div>
+
+      <div class="product-card">
+        <img src="wt66.jpg" alt="Виниловая пластинка RHCP">
+        <h3>Футболка "Red Hot Chili Peppers" белая</h3>
+        <p>Универсальная классика с логотипом группы, сочетается с любыми современными образами.</p>
+        <div class="price">2 500 ₽</div>
+        <button class="add-to-cart-btn">Купить</button>
+      </div>
+
+      <div class="product-card">
+        <img src="disc66.webp" alt="Постер Red Hot Chili Peppers">
+        <h3>Виниловая пластинка Red Hot Chili Peppers "Return of the Dream Canteen" (2LP)</h3>
+        <p>Легендарный альбом группы на виниле, идеально подходит для коллекционеров.</p>
+        <div class="price">4 500 ₽</div>
+        <button class="add-to-cart-btn">Купить</button>
+      </div>
+
+      <div class="product-card">
+        <img src="hoodie66.jpg" alt="Худи Red Hot Chili Peppers">
+        <h3>Худи "Red Hot Chili Peppers"</h3>
+        <p>Уютная теплая вещь с айдентикой культовой группы</p>
+        <div class="price">3450 ₽</div>
+        <button class="add-to-cart-btn">Купить</button>
+      </div>
+    </div>
+
+    <hr>
+    <p>Все товары эксклюзивны и выпущены ограниченным тиражом. Не упустите шанс приобрести свою частичку истории группы "Red Hot Chili Peppers"!</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Источники — Red Hot Chili Peppers</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-color: #121212; /* Темно-серый фон */
+      color: #F5F5F5; /* Белый цвет для текста */
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      line-height: 1.8;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      background-image: url('fonfon44.jpg');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.65);
+      z-index: -1;
+    }
+
+    .menu {
+      text-align: center;
+      margin: 40px 0 30px;
+      font-weight: bold;
+      animation: fadeIn 1s ease;
+    }
+
+    .menu a {
+      display: inline-block;
+      background-color: rgba(255, 0, 0, 0.25);
+      color: #FF0000;
+      text-decoration: none;
+      padding: 10px 18px;
+      border: 1px solid #FF0000;
+      border-radius: 25px;
+      margin: 4px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+    }
+
+    .menu a:hover {
+      background-color: #FF0000;
+      color: #FFF;
+      box-shadow: 0 0 15px #FF0000;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .menu a.active {
+      background-color: #FF0000;
+      color: #FFF;
+      box-shadow: 0 0 15px #FF0000;
+      cursor: default;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FF0000;
+      text-shadow: 0 0 10px #FF0000, 2px 2px 4px #000;
+      margin-bottom: 20px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #FF0000, 2px 2px 4px #000; }
+      to { text-shadow: 0 0 20px #FF6347, 2px 2px 6px #000; }
+    }
+
+    .content {
+      flex: 1;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      animation: fadeInUp 1s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .quote {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #FF0000;
+      padding: 15px 20px;
+      font-style: italic;
+      margin: 30px 0;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .image-block {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .image-block img {
+      width: 80%;
+      max-width: 650px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      transition: transform 0.4s ease;
+    }
+
+    .image-block img:hover {
+      transform: scale(1.05);
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background-color: #FF0000;
+      width: 60%;
+      margin: 30px auto;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #FF0000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Card Styles for Sources */
+    .source-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .source-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    }
+
+    .source-card a {
+      font-weight: bold;
+      color: #FF6347;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .source-card a:hover {
+      color: #FF0000;
+    }
+
+    /* Styles for Social Media Buttons */
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .social-buttons a {
+      display: inline-block;
+      margin: 0 15px;
+      background-color: #333;
+      padding: 12px;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+    }
+
+    .social-buttons a:hover {
+      background-color: #FF0000;
+    }
+
+    .social-buttons i {
+      color: white;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="menu">
+    <a href="indexst.html">Главная</a>
+    <a href="Infost.html">Общая информация</a>
+    <a href="Historyst.html">История</a>
+    <a href="Filmst.html">Фильмография</a>
+    <a href="Discst.html">Дискография</a>
+    <a href="Linkst.html" class="active">Источники</a>
+    <a href="Shopst.html">Магазин</a>
+    <a href="Contactst.html">Контакты</a>
+  </div>
+
+  <div class="content">
+    <h1>Источники о группе "Red Hot Chili Peppers"</h1>
+    <p><strong>Red Hot Chili Peppers</strong> — культовая американская рок-группа, оставившая значительный след в истории музыки. Чтобы глубже понять их творчество и наследие, мы рекомендуем ознакомиться с различными источниками, которые рассказывают о их истории, альбомах и культовом статусе.</p>
+
+    <h2>Книги и литература</h2>
+    <p>Группа "Red Hot Chili Peppers" стала объектом множества публикаций, в которых раскрываются её история, музыкальные достижения и личные переживания. Вот несколько книг, которые помогут вам узнать больше о группе:</p>
+
+    <div class="source-card">
+      <p><strong>«Scar Tissue»</strong> — автобиография фронтмена группы Энтони Кидиса, где он рассказывает о своем детстве, становлении группы и личных переживаниях.</p>
+      <a href="https://www.amazon.com/Scar-Tissue-Anthony-Kiedis/dp/0786887094" target="_blank">Ссылка на книгу</a>
+    </div>
+
+    <div class="source-card">
+      <p><strong>«Give It Away»</strong> — книга о культовых песнях группы и их влиянии на музыку 90-х годов.</p>
+      <a href="https://www.amazon.com/Give-Away-Story-Red-Chili/dp/0879308874" target="_blank">Ссылка на книгу</a>
+    </div>
+
+    <div class="source-card">
+      <p><strong>«Red Hot Chili Peppers: An Oral History»</strong> — полная история группы, рассказанная через интервью с её участниками и людьми, кто был с ними на протяжении их карьеры.</p>
+      <a href="https://www.amazon.com/Red-Hot-Chili-Peppers-History/dp/0760343042" target="_blank">Ссылка на книгу</a>
+    </div>
+
+    <h2>Интервью и статьи</h2>
+    <p>Множество интервью с участниками группы, где они делятся своими мыслями, переживаниями и опытом работы вместе. Вот несколько полезных ссылок:</p>
+
+    <div class="source-card">
+      <p><strong>Интервью с Энтони Кидисом для Rolling Stone</strong> — откровенные разговоры о жизни, наркотиках и музыке.</p>
+      <a href="https://www.rollingstone.com/music/music-features/anthony-kiedis-interview-red-hot-chili-peppers-2016-105279/" target="_blank">Прочитать интервью</a>
+    </div>
+
+    <div class="source-card">
+      <p><strong>Статья о возвращении Джона Фрушанте</strong> — подробности возвращения гитариста в группу.</p>
+      <a href="https://www.nme.com/news/music/red-hot-chili-peppers-john-frusciante-return-2020-2779242" target="_blank">Прочитать статью</a>
+    </div>
+
+    <h2>Официальные ресурсы</h2>
+    <div class="source-card">
+      <p><strong>Официальный сайт группы:</strong> на котором можно узнать новости, расписание туров и другие материалы о группе.</p>
+      <a href="https://www.redhotchilipeppers.com/" target="_blank">Перейти на сайт</a>
+    </div>
+
+    <h2>Статья в Википедии</h2>
+    <div class="source-card">
+      <p><strong>Статья о группе в Википедии:</strong> подробная информация о группе, её истории, альбомах и влиянии на музыку.</p>
+      <a href="https://ru.wikipedia.org/wiki/Red_Hot_Chili_Peppers" target="_blank">Прочитать статью</a>
+    </div>
+
+    <h2>Социальные сети</h2>
+    <div class="social-buttons">
+      <a href="https://www.facebook.com/rhcp" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com/rhcp" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/chilipeppers" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@RedHotChiliPeppers" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</body>
+</html>
+
+
